@@ -10,7 +10,7 @@ A simple equalizer plugin written in JUCE
 | AU                 | ✅       |
 | Standalone (MacOS) | ✅       |
 | Standalone (Windows) | ?       |
-| Standalone (Linux) | ?       |
+| Standalone (Linux) | ✅       |
 
 ## Setup
 - Install [CMake](https://cmake.org/download/) 3.15 or newer 
