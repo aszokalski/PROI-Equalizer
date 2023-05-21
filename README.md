@@ -9,7 +9,7 @@ A simple equalizer plugin written in JUCE
 | VST3               | ✅       |
 | AU                 | ✅       |
 | Standalone (MacOS) | ✅       |
-| Standalone (Windows) | ?       |
+| Standalone (Windows) | ✅       |
 | Standalone (Linux) | ✅       |
 
 ## Setup
