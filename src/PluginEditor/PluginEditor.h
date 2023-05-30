@@ -20,10 +20,11 @@ public:
 
 private:
     juce::Slider lowSlider;
-    juce::Label lowLabel;
     juce::Slider midSlider;
-    juce::Label midLabel;
     juce::Slider highSlider;
+
+    juce::Label lowLabel;
+    juce::Label midLabel;
     juce::Label highLabel;
 
     AudioPluginAudioProcessor& processorRef;

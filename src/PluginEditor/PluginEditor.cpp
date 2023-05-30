@@ -50,7 +50,7 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
     highLabel.setJustificationType(juce::Justification::centred);
     addAndMakeVisible(highLabel);
 
-    setSize (600, 300);
+    setSize (600, 600);
 }
 
 AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
@@ -61,13 +61,17 @@ AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
 void AudioPluginAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll(juce::Colours::black);
+
+    juce::Rectangle<int> waveformBox(10, 10, 580, 320);
+    g.setColour(juce::Colours::lightblue);
+    g.fillRect(waveformBox);
 }
 
 void AudioPluginAudioProcessorEditor::resized()
 {
-    lowSlider.setBounds(105, 60, 60, 200);
-    midSlider.setBounds(270, 60, 60, 200);
-    highSlider.setBounds(435, 60, 60, 200);
+    lowSlider.setBounds(105, 360, 60, 200);
+    midSlider.setBounds(270, 360, 60, 200);
+    highSlider.setBounds(435, 360, 60, 200);
 
     lowLabel.setBounds(lowSlider.getX(), lowSlider.getY() + 205, lowSlider.getWidth(), 20);
     midLabel.setBounds(midSlider.getX(), midSlider.getY() + 205, midSlider.getWidth(), 20);
