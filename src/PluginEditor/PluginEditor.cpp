@@ -10,9 +10,26 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
         : AudioProcessorEditor (&p), processorRef (p)
 {
     juce::ignoreUnused (processorRef);
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+
+    lowSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    lowSlider.setRange(0.0f, 1.0f, 0.01f);
+    lowSlider.setValue(0.5f);
+    lowSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20);
+    addAndMakeVisible(lowSlider);
+
+    midSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    midSlider.setRange(0.0f, 1.0f, 0.01f);
+    midSlider.setValue(0.5f);
+    midSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20);
+    addAndMakeVisible(midSlider);
+
+    highSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    highSlider.setRange(0.0f, 1.0f, 0.01f);
+    highSlider.setValue(0.5f);
+    highSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 50, 20);
+    addAndMakeVisible(highSlider);
+
+    setSize (600, 300);
 }
 
 AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
@@ -22,16 +39,12 @@ AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
 //==============================================================================
 void AudioPluginAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
+    g.fillAll(juce::Colours::black);
 }
 
 void AudioPluginAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    lowSlider.setBounds(100, 80, 50, getHeight() - 100);
+    midSlider.setBounds(300, 80, 50, getHeight() - 100);
+    highSlider.setBounds(500, 80, 50, getHeight() - 100);
 }
