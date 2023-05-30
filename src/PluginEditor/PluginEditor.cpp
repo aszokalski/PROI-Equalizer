@@ -6,7 +6,7 @@
 #include "../PluginProcessor/PluginProcessor.h"
 
 //==============================================================================
-AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAudioProcessor& p)
+EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
         : AudioProcessorEditor (&p), processorRef (p)
 {
     juce::ignoreUnused (processorRef);
@@ -23,6 +23,8 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
     lowLabel.setFont(juce::Font(15.0f, juce::Font::bold));
     lowLabel.setJustificationType(juce::Justification::centred);
     addAndMakeVisible(lowLabel);
+
+    lowAttachment = std::make_unique<SliderAttachment>(processorRef.state, "LOW", lowSlider);
 
     midSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
     midSlider.setRange(0.0f, 1.0f, 0.01f);
@@ -53,12 +55,12 @@ AudioPluginAudioProcessorEditor::AudioPluginAudioProcessorEditor (AudioPluginAud
     setSize (600, 600);
 }
 
-AudioPluginAudioProcessorEditor::~AudioPluginAudioProcessorEditor()
+EqualizerEditor::~EqualizerEditor()
 {
 }
 
 //==============================================================================
-void AudioPluginAudioProcessorEditor::paint (juce::Graphics& g)
+void EqualizerEditor::paint (juce::Graphics& g)
 {
     g.fillAll(juce::Colours::black);
 
@@ -67,7 +69,7 @@ void AudioPluginAudioProcessorEditor::paint (juce::Graphics& g)
     g.fillRect(waveformBox);
 }
 
-void AudioPluginAudioProcessorEditor::resized()
+void EqualizerEditor::resized()
 {
     lowSlider.setBounds(105, 360, 60, 200);
     midSlider.setBounds(270, 360, 60, 200);
