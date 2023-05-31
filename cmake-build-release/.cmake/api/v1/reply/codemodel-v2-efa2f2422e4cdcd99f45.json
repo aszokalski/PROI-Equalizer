@@ -1,0 +1,173 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "lib/juce",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.juce-Release-97996661c5285c620ec6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "lib/juce"
+				},
+				{
+					"build" : "lib/juce/modules",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.juce.modules-Release-039b3f3e9320eaa29116.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/juce/modules"
+				},
+				{
+					"build" : "lib/juce/extras/Build",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.juce.extras.Build-Release-8ea16d5979249272a8a0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "lib/juce/extras/Build"
+				},
+				{
+					"build" : "lib/juce/extras/Build/juceaide",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-lib.juce.extras.Build.juceaide-Release-2f9603ea6b987acb8e0a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 1,
+					"source" : "lib/juce/extras/Build/juceaide"
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "PROI_EQUALIZER_PROJECT",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "JUCE",
+					"parentIndex" : 0
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ProiEqualizer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProiEqualizer-Release-3ca05f8fa549f02e2d4b.json",
+					"name" : "ProiEqualizer",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProiEqualizer_AU::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProiEqualizer_AU-Release-2a0e6cc46e206dd08f7f.json",
+					"name" : "ProiEqualizer_AU",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProiEqualizer_All::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProiEqualizer_All-Release-a16bdec84cc5d7c25826.json",
+					"name" : "ProiEqualizer_All",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProiEqualizer_Standalone::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProiEqualizer_Standalone-Release-f60f45a918379f7bd8f4.json",
+					"name" : "ProiEqualizer_Standalone",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProiEqualizer_VST3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProiEqualizer_VST3-Release-bc73bcd44d04b619f363.json",
+					"name" : "ProiEqualizer_VST3",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release",
+		"source" : "/Users/aszokalski/CLionProjects/proi-equalizer-project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -1,0 +1,7 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/aszokalski/CLionProjects/proi-equalizer-project -B /Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release
+-- Configuring juceaide
+-- Building juceaide
+-- Exporting juceaide
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release

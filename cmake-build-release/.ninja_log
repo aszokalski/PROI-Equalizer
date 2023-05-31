@@ -1,0 +1,191 @@
+# ninja log v5
+1975	4238	1685489501787298667	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_events/juce_events.mm.o	36da54322991abbe
+20534	20559	1685489518118994223	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AUv3.mm.o	680ecef5750decbc
+112	134	1685491057077940772	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.mm.o	76a5ba31b5cff937
+20500	20536	1685489518093230277	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp.o	7e38fbdaf29cf673
+20535	20557	1685489518116455411	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.mm.o	3b3f80dcdae3f75d
+20500	20536	1685489518095837463	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp.o	da995207ba71db43
+213	8331	1685489505870698927	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_processors/juce_audio_processors.mm.o	49f4f78792ee0a66
+20501	20534	1685489518092628074	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm.o	d080be3d10e641c1
+1704	17340	1685492851297847556	ProiEqualizer_artefacts/Release/Standalone/PROI Equalizer.app/Contents/MacOS/PROI Equalizer	78dd2b9893379264
+20499	22040	1685489519594092246	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp.o	aaac6b003277d1d6
+14852	14951	1683736154295278577	ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_Standalone/PkgInfo	a4617884b8890220
+14852	14951	1683736154295278577	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_Standalone/PkgInfo	a4617884b8890220
+1693	11666	1685489509210113584	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_graphics/juce_graphics.mm.o	f052f409effac5f2
+46	223	1684245576120520232	ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_VST3/PkgInfo	686f853e2dadcec1
+45	956	1685488217576668137	build.ninja	70a620f75f73a090
+49	1318	1685544162096634026	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+20501	20536	1685489518093534400	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_1.mm.o	f77b77d05e2e7322
+134	182	1685491262447488275	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp.o	e901c14e0b3de8e1
+73	113	1685491057052333763	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp.o	5fd20eac0a700909
+74	6296	1685491063209984786	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_1.mm.o	f6d0815d28a27274
+255	1692	1685489499246941179	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_data_structures/juce_data_structures.mm.o	130a207473c7d8f
+211	5714	1685489503256702739	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_gui_extra/juce_gui_extra.mm.o	73227704a44de38b
+5300	11170	1685489508715106133	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_formats/juce_audio_formats.mm.o	b5f958c2c035233a
+73	112	1685491057052494097	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp.o	e03b121ae98c330d
+59	144	1685491262406379886	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_1.mm.o	f489a836a9466d64
+55	210	1685489497769176512	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/ProiEqualizer_artefacts/JuceLibraryCode/JuceHeader.h	f0829520a9abf12f
+51	1281	1685542746069471939	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+86	146	1685491262406396012	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp.o	65b0fd0ad2fad0c0
+20500	20536	1685489518094677765	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.mm.o	6972d4ab3e9ba3f0
+212	261	1685489497818936459	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_processors/juce_audio_processors_ara.cpp.o	47e13bb982b12ae3
+1318	1710	1685544162494599000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+73	111	1685491057052407972	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp.o	f8a60849f34e796f
+47	15131	1685492924508216041	ProiEqualizer_artefacts/Release/AU/PROI Equalizer.component/Contents/MacOS/PROI Equalizer	2328ebae1554e906
+2226	6612	1685489504157758574	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_basics/juce_audio_basics.mm.o	c213fb431e15169a
+55	210	1685489497769176512	ProiEqualizer_artefacts/JuceLibraryCode/JuceHeader.h	f0829520a9abf12f
+67	145	1685491262406401511	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST2.cpp.o	82d465a7bb6aac57
+0	58	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+211	1975	1685489499525861031	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_utils.cpp.o	16ba5b4f5a64e20d
+20500	20535	1685489518092922072	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp.o	cef618bb157d1aa9
+211	5300	1685489502834569786	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_utils/juce_audio_utils.mm.o	6aed61ab319f7ea1
+48	150	1683736495396908009	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_AU/PkgInfo	68f63b7ef72ccc5a
+68	10166	1685491272419015962	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp.o	f1d800443e8ab833
+72	111	1685491057052638472	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Standalone.cpp.o	7d4fb7d6527fa14e
+2028	11694	1685489509240661572	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_core/juce_core.mm.o	ca754c7af2ea2041
+73	112	1685491057052408847	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST_utils.mm.o	f3ffb223ed7718c1
+111	3748	1685491060685761447	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm.o	a5b519d793682c2a
+145	187	1685491262460715071	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AUv3.mm.o	a42018770177c15d
+146	184	1685491262452853277	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_LV2.mm.o	87b2ea4588159fcb
+46	223	1684245576120520232	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_VST3/PkgInfo	686f853e2dadcec1
+111	137	1685491057080374482	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AUv3.mm.o	30740c37ec28fd18
+0	7	1683736139351239561	ProiEqualizer_artefacts/Release/Standalone/PROI Equalizer.app/Contents/Resources/RecentFilesMenuTemplate.nib	802bbcb67caae46f
+84	146	1685491262406780970	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp.o	7f699459d0bbc07f
+4238	7935	1685489505482826471	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_devices/juce_audio_devices.mm.o	4b4c4ef7bbf637b6
+1710	16058	1685544176822254397	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+261	20071	1685489517595213769	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_gui_basics/juce_gui_basics.mm.o	1e66310754d2993f
+20535	20559	1685489518118740225	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST_utils.mm.o	7af3d34977cc20c6
+73	112	1685491057052594055	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_Unity.cpp.o	b4014dd87d6047e5
+70	4165	1685491266426299122	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST_utils.mm.o	d3b8f63b990647e3
+20499	20535	1685489518093046571	CMakeFiles/ProiEqualizer_Standalone.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_ARA.cpp.o	ca156d2c0f7fd384
+144	187	1685491262461322321	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm.o	8175ddb2ce41a606
+74	113	1685491057053004805	CMakeFiles/ProiEqualizer_AU.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.mm.o	94b1336ff4c482b5
+5714	10122	1685489507668431967	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_dsp/juce_dsp.mm.o	b2c01cc8add32611
+48	150	1683736495396908009	ProiEqualizer_artefacts/JuceLibraryCode/ProiEqualizer_AU/PkgInfo	68f63b7ef72ccc5a
+212	255	1685489497812522181	CMakeFiles/ProiEqualizer.dir/lib/juce/modules/juce_audio_processors/juce_audio_processors_lv2_libs.cpp.o	8e45d8d85cd2b465
+56	134	1685491262406390636	CMakeFiles/ProiEqualizer_VST3.dir/lib/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AAX.mm.o	e9ee1fa8528ea85e
+0	58	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+1	59	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1264	1685544480012528536	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+49	1425	1685544480173948294	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1425	1827	1685544480582317000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1827	16127	1685544494859625926	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+94	1402	1685544649893769471	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1402	1814	1685544650312193000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1814	16146	1685544664622024146	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+1	55	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+46	1349	1685544750001485554	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1350	1761	1685544750419757000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1761	16104	1685544764746916673	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	53	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+46	1275	1685544885316945173	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1275	1655	1685544885703705000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1655	15710	1685544899743116140	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	55	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+46	1276	1685544968087594761	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1276	1687	1685544968504731000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1687	16148	1685544982949377656	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	54	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+46	1283	1685545139107128128	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1283	1654	1685545139483708000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1654	15780	1685545153591843029	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	68	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+96	1328	1685545517843746626	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1328	1740	1685545518261724000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1740	15924	1685545532423294158	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	55	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1291	1685545700637361194	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1292	1678	1685545701029960000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1678	15745	1685545715076810420	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	58	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1294	1685545828782439690	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1295	1690	1685545829183875000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1690	15821	1685545843295097213	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	56	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+48	1189	1685546328970315658	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+47	1356	1685546329138273109	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1356	1751	1685546329538873000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1751	15941	1685546343709683693	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	70	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+97	1338	1685546558413367305	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1339	1723	1685546558804276000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1723	16023	1685546573087759791	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+50	1344	1685546638003887630	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1344	1723	1685546638389554000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1724	16216	1685546652865995750	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	59	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1292	1685546785051964987	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1292	1659	1685546785424975000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1659	15746	1685546799496555710	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	54	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1277	1685546812417194375	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1277	1645	1685546812791390000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1645	16117	1685546827247310055	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1296	1685546954447740330	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1296	1671	1685546954829065000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1671	15867	1685546969010100669	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	59	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1284	1685547130188937181	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1284	1657	1685547130567641000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1657	15828	1685547144724050567	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	55	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1291	1685547276893070665	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1291	1668	1685547277276511000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1668	15938	1685547291530475618	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	72	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+99	1360	1685547510375970066	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1360	1736	1685547510758208000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1736	16330	1685547525330281193	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+51	1318	1685547676445957648	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1318	1724	1685547676857734000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1724	16455	1685547691569470765	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	55	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1333	1685547695537869361	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1333	1719	1685547695930134000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1719	16051	1685547710241036326	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	56	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1290	1685547968068121449	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1290	1694	1685547968478340000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1694	15816	1685547982584853781	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	86	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+111	1397	1685549788413292234	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1397	1813	1685549788836103000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1813	16259	1685549803261415715	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	58	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+48	1306	1685550028765523490	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1306	1710	1685550029175877000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1710	15945	1685550043390682640	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	58	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1329	1685550082911885174	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1329	1745	1685550083334169000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1745	16104	1685550097677380576	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	82	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+58	1177	1685551778453426640	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+58	1358	1685551778636009272	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1359	1759	1685551779043354000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1759	16109	1685551793373218776	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1322	1685552033351041724	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1322	1708	1685552033742706000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1708	16239	1685552048251376924	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	57	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+96	1259	1685552214824262819	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+1	56	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+47	1329	1685552222684381343	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1329	1733	1685552223095331000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1733	15986	1685552237326943924	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+1	56	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+49	1263	1685552415310087076	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+49	1425	1685552415473989013	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1425	1837	1685552415892284000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1837	16165	1685552430201792587	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
+0	56	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-release/CMakeFiles/cmake.verify_globs	965835fe7e6e6609
+50	1306	1685552655504927122	CMakeFiles/ProiEqualizer.dir/src/PluginEditor/PluginEditor.cpp.o	4b3c3d17d213ebb8
+50	1469	1685552655670218120	CMakeFiles/ProiEqualizer.dir/src/PluginProcessor/PluginProcessor.cpp.o	d3e29619fc8339b5
+1470	1878	1685552656086335000	ProiEqualizer_artefacts/Release/libPROI Equalizer_SharedCode.a	882ed93f5f54f3e7
+1878	16767	1685552670951345004	ProiEqualizer_artefacts/Release/VST3/PROI Equalizer.vst3/Contents/MacOS/PROI Equalizer	aa91cb805de6ded2
