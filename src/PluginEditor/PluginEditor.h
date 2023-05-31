@@ -6,8 +6,7 @@
 #define PROI_EQUALIZER_PROJECT_PLUGINEDITOR_H
 
 #include "../PluginProcessor/PluginProcessor.h"
-#include "juce_dsp/frequency/juce_FFT.h"
-#include "juce_dsp/frequency/juce_Windowing.h"
+#include <JuceHeader.h>
 
 //==============================================================================
 class EqualizerEditor  : public juce::AudioProcessorEditor
@@ -56,7 +55,7 @@ public:
     void drawFrame (juce::Graphics& g);
 private:
     juce::dsp::FFT forwardFFT;
-    juce::dsp::WindowingFunction<float> window{};
+    juce::dsp::WindowingFunction<float> window;
 
     float fifo[fftSize]{};
     float fftData[2 * fftSize]{};

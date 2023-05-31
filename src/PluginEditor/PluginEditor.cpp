@@ -71,7 +71,7 @@ void EqualizerEditor::paint (juce::Graphics& g)
 }
 
 
-void AudioPluginAudioProcessorEditor::resized()
+void EqualizerEditor::resized()
 {
     lowSlider.setBounds(105, 360, 60, 200);
     midSlider.setBounds(270, 360, 60, 200);
