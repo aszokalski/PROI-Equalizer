@@ -31,6 +31,8 @@ private:
     juce::Label highLabel;
 
     SliderAttachmentPtr lowAttachment;
+    SliderAttachmentPtr midAttachment;
+    SliderAttachmentPtr highAttachment;
 
     EqualizerProcessor& processorRef;
 

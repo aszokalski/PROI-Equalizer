@@ -14,8 +14,13 @@ EqualizerProcessor::EqualizerProcessor()
 #endif
                                   .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
 #endif
-)
+), lowPassFilter(juce::dsp::IIR::Coefficients<float>::makeLowPass(44100, 300, 5.0f)),
+lowPeakFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100, 20000, 5.0f, 1.0f)),
+highPassFilter(juce::dsp::IIR::Coefficients<float>::makeHighPass(44100, 20000, 5.0f)),
+highPeakFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100, 20000, 5.0f, 1.0f)),
+midPeakFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100, 20000, 5.0f, 1.0f))
 {
+
 }
 
 EqualizerProcessor::~EqualizerProcessor()
@@ -90,9 +95,26 @@ void EqualizerProcessor::changeProgramName (int index, const juce::String& newNa
 //==============================================================================
 void EqualizerProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
-    juce::ignoreUnused (sampleRate, samplesPerBlock);
+    lastSampleRate = sampleRate;
+    juce::dsp::ProcessSpec spec{};
+    spec.sampleRate = sampleRate;
+    spec.maximumBlockSize = static_cast<unsigned int>(samplesPerBlock);
+    spec.numChannels = static_cast<unsigned int>(getTotalNumOutputChannels());
+
+    lowPassFilter.prepare(spec);
+    lowPassFilter.reset();
+
+    highPassFilter.prepare(spec);
+    highPassFilter.reset();
+
+    lowPeakFilter.prepare(spec);
+    lowPeakFilter.reset();
+
+    highPeakFilter.prepare(spec);
+    highPeakFilter.reset();
+
+    midPeakFilter.prepare(spec);
+    midPeakFilter.reset();
 }
 
 void EqualizerProcessor::releaseResources()
@@ -134,27 +156,16 @@ void EqualizerProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-        juce::ignoreUnused (channelData);
-        // ..do something to the data...
-    }
+    juce::dsp::AudioBlock<float> block(buffer);
+    updateFilters();
+    lowPassFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    highPassFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    lowPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    highPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+    midPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
 }
 
 //==============================================================================
@@ -189,9 +200,36 @@ juce::AudioProcessorValueTreeState::ParameterLayout EqualizerProcessor::createPa
 
     params.push_back(std::make_unique<juce::AudioParameterFloat>("LOW",
                                                                  "LOW",
-                                                                 juce::NormalisableRange<float>(0.0f, 1.0f, 0.1f, 0.0f),
-                                                                 1.0f));
+                                                                 juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f),
+                                                                 0.5f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("HIGH",
+                                                                    "HIGH",
+                                                                    juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f),
+                                                                    0.5f));
+    params.push_back(std::make_unique<juce::AudioParameterFloat>("MID",
+                                                                    "MID",
+                                                                    juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f),
+                                                                    0.5f));
+
     return { params.begin(), params.end() };
+}
+
+void EqualizerProcessor::updateFilters() const {
+    float l_f = *state.getRawParameterValue("LOW");
+    float h_f = *state.getRawParameterValue("HIGH");
+    float m_f = *state.getRawParameterValue("MID");
+
+    // low cut = high pass
+    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(lastSampleRate, FrequencyBorders::getLowFreq(l_f));
+    // high cut = low pass
+    *lowPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowPass(lastSampleRate, FrequencyBorders::getHighFreq(h_f));
+    // low peak
+    *lowPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::Min, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((l_f - 0.5f) * 50.0f, 0.1f)));
+    // high peak
+    *highPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::Max, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((h_f - 0.5f) * 50.0f, 0.1f)));
+    // mid peak
+    *midPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::MidHigh, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((m_f - 0.5f) * 50.0f, 0.1f)));
+
 }
 
 //==============================================================================

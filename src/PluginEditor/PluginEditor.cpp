@@ -39,6 +39,8 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
     midLabel.setJustificationType(juce::Justification::centred);
     addAndMakeVisible(midLabel);
 
+    midAttachment = std::make_unique<SliderAttachment>(processorRef.state, "MID", midSlider);
+
     highSlider.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
     highSlider.setRange(0.0f, 1.0f, 0.01f);
     highSlider.setValue(0.5f);
@@ -51,6 +53,8 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
     highLabel.setFont(juce::Font(15.0f, juce::Font::bold));
     highLabel.setJustificationType(juce::Justification::centred);
     addAndMakeVisible(highLabel);
+
+    highAttachment = std::make_unique<SliderAttachment>(processorRef.state, "HIGH", highSlider);
 
     setSize (600, 600);
 }
