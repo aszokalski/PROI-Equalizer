@@ -133,7 +133,7 @@ void AnalyserComponent::timerCallback()
     if (nextFFTBlockReady) {
         drawNextFrameOfSpectrum();
         nextFFTBlockReady = false;
-        repaint();
+        AnalyserComponent::repaint();
     }
 }
 
