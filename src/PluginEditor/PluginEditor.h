@@ -10,11 +10,14 @@
 #include "juce_dsp/frequency/juce_Windowing.h"
 
 //==============================================================================
-class AudioPluginAudioProcessorEditor  : public juce::AudioProcessorEditor
+class EqualizerEditor  : public juce::AudioProcessorEditor
 {
+private:
+    using SliderAttachment = juce::AudioProcessorValueTreeState::SliderAttachment;
+    using SliderAttachmentPtr = std::unique_ptr<SliderAttachment>;
 public:
-    explicit AudioPluginAudioProcessorEditor (AudioPluginAudioProcessor&);
-    ~AudioPluginAudioProcessorEditor() override;
+    explicit EqualizerEditor (EqualizerProcessor&);
+    ~EqualizerEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -29,9 +32,11 @@ private:
     juce::Label midLabel;
     juce::Label highLabel;
 
-    AudioPluginAudioProcessor& processorRef;
+    SliderAttachmentPtr lowAttachment;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudioPluginAudioProcessorEditor)
+    EqualizerProcessor& processorRef;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EqualizerEditor)
 };
 
 class AnalyserComponent : public juce::Component
