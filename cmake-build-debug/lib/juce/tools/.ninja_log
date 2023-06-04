@@ -1,13 +1,13 @@
 # ninja log v5
-1	62	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-debug/lib/juce/tools/CMakeFiles/cmake.verify_globs	e5f7bca012513474
-0	254	1683734643005852061	CMakeFiles/juce_lv2_helper.dir/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp.o	cd2706eb47503e6e
-0	8770	1683734651487830218	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_gui_basics/juce_gui_basics.mm.o	7080a78ec70174be
-8773	9307	1683734652057343924	extras/Build/juceaide/juceaide_artefacts/Debug/juceaide	2fc79df1f49ff43e
-256	293	1683734643046966834	juce_lv2_helper	7372fda57d3510c3
-1	793	1683734643541791182	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_data_structures/juce_data_structures.mm.o	d4b400fbf0805e3a
-1	3035	1683734645775394400	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_core/juce_core.mm.o	7e7c34e38cd14d48
-0	1186	1683734643933984217	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/juce_build_tools/juce_build_tools.cpp.o	add696eff07f13a9
-0	1246	1683734643992977998	extras/Build/juceaide/CMakeFiles/juceaide.dir/Main.cpp.o	81d3994460f00f6d
-0	3233	1683734645972817671	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_graphics/juce_graphics.mm.o	896d069d18e2f09f
 0	1526	1683734644271239543	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_events/juce_events.mm.o	9b1057f17f582caa
+0	3233	1683734645972817671	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_graphics/juce_graphics.mm.o	896d069d18e2f09f
+0	1246	1683734643992977998	extras/Build/juceaide/CMakeFiles/juceaide.dir/Main.cpp.o	81d3994460f00f6d
+0	1186	1683734643933984217	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/juce_build_tools/juce_build_tools.cpp.o	add696eff07f13a9
+1	3035	1683734645775394400	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_core/juce_core.mm.o	7e7c34e38cd14d48
+1	793	1683734643541791182	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_data_structures/juce_data_structures.mm.o	d4b400fbf0805e3a
+256	293	1683734643046966834	juce_lv2_helper	7372fda57d3510c3
+8773	9307	1683734652057343924	extras/Build/juceaide/juceaide_artefacts/Debug/juceaide	2fc79df1f49ff43e
+0	8770	1683734651487830218	extras/Build/juceaide/CMakeFiles/juceaide.dir/__/__/__/modules/juce_gui_basics/juce_gui_basics.mm.o	7080a78ec70174be
+0	254	1683734643005852061	CMakeFiles/juce_lv2_helper.dir/modules/juce_audio_plugin_client/LV2/juce_LV2TurtleDumpProgram.cpp.o	cd2706eb47503e6e
 1	54	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-debug/lib/juce/tools/CMakeFiles/cmake.verify_globs	e5f7bca012513474
+0	59	0	/Users/aszokalski/CLionProjects/proi-equalizer-project/cmake-build-debug/lib/juce/tools/CMakeFiles/cmake.verify_globs	e5f7bca012513474

@@ -24,8 +24,7 @@ midPeakFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100, 20000, 
 }
 
 EqualizerProcessor::~EqualizerProcessor()
-{
-}
+= default;
 
 //==============================================================================
 const juce::String EqualizerProcessor::getName() const
@@ -96,6 +95,10 @@ void EqualizerProcessor::changeProgramName (int index, const juce::String& newNa
 void EqualizerProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     lastSampleRate = sampleRate;
+
+    if (spectrumAnalyserPtr != nullptr)
+        spectrumAnalyserPtr->setLastSampleRate(sampleRate);
+
     juce::dsp::ProcessSpec spec{};
     spec.sampleRate = sampleRate;
     spec.maximumBlockSize = static_cast<unsigned int>(samplesPerBlock);
@@ -166,6 +169,9 @@ void EqualizerProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     lowPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
     highPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
     midPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+
+    if(spectrumAnalyserPtr != nullptr)
+        spectrumAnalyserPtr->pushBuffer(buffer);
 }
 
 //==============================================================================
@@ -228,8 +234,13 @@ void EqualizerProcessor::updateFilters() const {
     // high peak
     *highPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::Max, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((h_f - 0.5f) * 50.0f, 0.1f)));
     // mid peak
-    *midPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::MidHigh, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((m_f - 0.5f) * 50.0f, 0.1f)));
+    *midPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::MidHigh, inverseRootTwo, juce::Decibels::decibelsToGain(m_f*25.0f));
 
+}
+
+void EqualizerProcessor::setSpectrumAnalyser(SpectrumAnalyser *spectrumAnalyser) {
+    this->spectrumAnalyserPtr = spectrumAnalyser;
+    spectrumAnalyserPtr->setLastSampleRate(lastSampleRate);
 }
 
 //==============================================================================

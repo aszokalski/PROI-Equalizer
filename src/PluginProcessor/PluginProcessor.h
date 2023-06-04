@@ -9,30 +9,8 @@
 #include <juce_dsp/juce_dsp.h>
 #include <juce_audio_processors/juce_audio_processors.h>
 
-static constexpr float inverseRootTwo = static_cast<float > (0.70710678118654752440L);
-
-struct FrequencyBorders {
-    constexpr static float Min=20.0f;
-    constexpr static float LowMid=250.0f;
-    constexpr static float MidHigh=8000.0f;
-    constexpr static float Max=20000.0f;
-
-    constexpr static float HighRange=Max-MidHigh;
-    constexpr static float MidRange=MidHigh-LowMid;
-    constexpr static float LowRange=LowMid-Min;
-
-    inline static float getLowFreq(float lowGain){
-        return LowMid-lowGain*LowRange;
-    }
-
-    inline static float getMidFreq(float midGain){
-        return LowMid+midGain*MidRange;
-    }
-
-    inline static float getHighFreq(float highGain){
-        return MidHigh+highGain*HighRange;
-    }
-};
+#include "../SpectrumAnalyser/SpectrumAnalyser.h"
+#include "../util.h"
 
 //==============================================================================
 class EqualizerProcessor  : public juce::AudioProcessor
@@ -79,6 +57,7 @@ public:
 
     void updateFilters() const;
 
+    void setSpectrumAnalyser(SpectrumAnalyser *spectrumAnalyser);
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EqualizerProcessor)
@@ -87,7 +66,9 @@ private:
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highPassFilter;
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> highPeakFilter;
     juce::dsp::ProcessorDuplicator<juce::dsp::IIR::Filter<float>, juce::dsp::IIR::Coefficients<float>> midPeakFilter;
-    double lastSampleRate;
+    double lastSampleRate{};
+
+    SpectrumAnalyser *spectrumAnalyserPtr = nullptr;
 };
 
 #endif //PROI_EQUALIZER_PROJECT_PLUGINPROCESSOR_H
