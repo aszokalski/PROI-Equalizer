@@ -52,12 +52,14 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    static juce::AudioProcessorValueTreeState::ParameterLayout createParameters();
-    juce::AudioProcessorValueTreeState state {*this, nullptr, "Parameters", createParameters()};
 
     void updateFilters() const;
 
     void setSpectrumAnalyser(SpectrumAnalyser *spectrumAnalyser);
+
+    static juce::AudioProcessorValueTreeState::ParameterLayout createParameters();
+    juce::AudioProcessorValueTreeState state {*this, nullptr, "Parameters", createParameters()};
+
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EqualizerProcessor)
