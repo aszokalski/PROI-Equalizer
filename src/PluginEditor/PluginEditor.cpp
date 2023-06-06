@@ -3,6 +3,7 @@
 //
 
 #include "PluginEditor.h"
+#include "../util.h"
 
 //==============================================================================
 EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
@@ -55,6 +56,25 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
 
     highAttachment = std::make_unique<SliderAttachment>(processorRef.state, "HIGH", highSlider);
 
+    flavourComboBox.addItemList(util::eqParametersList.getNames(), 1);
+
+    flavourComboBox.setJustificationType(juce::Justification::centred);
+    flavourComboBox.setSelectedItemIndex(0);
+
+    flavourComboBox.onChange = [this] {
+        auto index = flavourComboBox.getSelectedItemIndex();
+        auto &pair = util::eqParametersList.eqParametersList[static_cast<unsigned long>(index)];
+        spectrumAnalyser.setMaxFrequency(pair.second->getMax());
+    };
+    addAndMakeVisible(flavourComboBox);
+
+    flavourLabel.setText("Flavour", juce::dontSendNotification);
+    flavourLabel.setFont(juce::Font(15.0f, juce::Font::bold));
+    flavourLabel.setJustificationType(juce::Justification::centred);
+    addAndMakeVisible(flavourLabel);
+
+    flavourAttachment = std::make_unique<ComboBoxAttachment>(processorRef.state, "FLAVOUR", flavourComboBox);
+
     processorRef.setSpectrumAnalyser(&spectrumAnalyser);
     addAndMakeVisible(spectrumAnalyser);
 
@@ -80,10 +100,14 @@ void EqualizerEditor::resized()
     lowSlider.setBounds(105, 360, 60, 200);
     midSlider.setBounds(270, 360, 60, 200);
     highSlider.setBounds(435, 360, 60, 200);
+    flavourComboBox.setBounds(290, 10, 80, 20);
+    flavourComboBox.toFront(false);
 
     lowLabel.setBounds(lowSlider.getX(), lowSlider.getY() + 205, lowSlider.getWidth(), 20);
     midLabel.setBounds(midSlider.getX(), midSlider.getY() + 205, midSlider.getWidth(), 20);
     highLabel.setBounds(highSlider.getX(), highSlider.getY() + 205, highSlider.getWidth(), 20);
+    flavourLabel.setBounds(flavourComboBox.getX() - 80, flavourComboBox.getY(), flavourComboBox.getWidth(), 20);
+    flavourLabel.toFront(false);
 
     spectrumAnalyser.setBounds(10, 10, 580, 320);
 }

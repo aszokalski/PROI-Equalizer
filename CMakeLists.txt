@@ -21,6 +21,7 @@ target_sources(ProiEqualizer
         src/PluginProcessor/PluginProcessor.cpp
         src/PluginEditor/PluginEditor.cpp
         src/SpectrumAnalyser/SpectrumAnalyser.cpp
+        src/util.cpp
         )
 
 target_compile_definitions(ProiEqualizer

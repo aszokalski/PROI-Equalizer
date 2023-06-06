@@ -3,7 +3,6 @@
 //
 
 #include "SpectrumAnalyser.h"
-#include "../util.h"
 
 SpectrumAnalyser::SpectrumAnalyser() :  forwardFFT (fftOrder),
                                         window (fftSize, juce::dsp::WindowingFunction<float>::rectangular)
@@ -64,7 +63,7 @@ void SpectrumAnalyser::updateScope() {
     int numBands = fftSize / 2;
 
     // Calculate the maximum index in the FFT data corresponding to 20kHz
-    int maxIndex = (int)((float)numBands * FrequencyBorders::Max / lastSampleRate);
+    int maxIndex = (int)((float)numBands * maxFrequency / lastSampleRate);
 
     for (int i = 0; i < scopeSize; ++i)
     {
@@ -111,9 +110,11 @@ void SpectrumAnalyser::drawFrame(juce::Graphics& g) {
 }
 
 
-
-
-
 void SpectrumAnalyser::setLastSampleRate(double sampleRate) noexcept {
     lastSampleRate = sampleRate;
+}
+
+
+void SpectrumAnalyser::setMaxFrequency(double maxFreq) noexcept {
+    maxFrequency = maxFreq;
 }

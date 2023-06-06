@@ -24,6 +24,8 @@ public:
 
     void setLastSampleRate (double sampleRate) noexcept;
 
+    void setMaxFrequency (double maxFreq) noexcept;
+
 private:
     void updateScope();
 
@@ -46,6 +48,7 @@ private:
     float scopeData [scopeSize]{};
 
     double lastSampleRate = 44100.0f;
+    double maxFrequency = 20000.0f;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SpectrumAnalyser)
 };
