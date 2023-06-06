@@ -10,7 +10,7 @@ namespace util {
     EQParametersList::EQParametersList() {
         eqParametersList.emplace_back("Default", std::make_unique<FrequencyBorders<60, 250, 5000, 20000>>());
         eqParametersList.emplace_back("Custom", std::make_unique<FrequencyBorders<20, 100, 10000, 20000>>());
-        eqParametersList.emplace_back("Custom 2", std::make_unique<FrequencyBorders<60, 800, 7000, 20000>>());
+        eqParametersList.emplace_back("Custom 2", std::make_unique<FrequencyBorders<200, 800, 7000, 10000>>());
     }
 
     juce::StringArray EQParametersList::getNames() {

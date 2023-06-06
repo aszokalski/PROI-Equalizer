@@ -73,7 +73,7 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
     flavourLabel.setJustificationType(juce::Justification::centred);
     addAndMakeVisible(flavourLabel);
 
-    flavourAttachment = std::make_unique<ComboBoxAttachment>(processorRef.state, "FLAVOUR", flavourComboBox);
+    flavourAttachment = std::make_unique<ComboBoxAttachment>(processorRef.state, "TYPE", flavourComboBox);
 
     processorRef.setSpectrumAnalyser(&spectrumAnalyser);
     addAndMakeVisible(spectrumAnalyser);
