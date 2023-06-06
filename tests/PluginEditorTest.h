@@ -6,18 +6,26 @@
 #define PROI_EQUALIZER_PROJECT_PLUGINEDITORTEST_H
 
 #include "../src/PluginEditor/PluginEditor.h"
+#include "../src/PluginProcessor/PluginProcessor.h"
 
 class EqualizerEditorTest {
 public:
-    float testLowSlider();
-//    float testMidSlider();
-//    float testHighSlider();
-//    float testLowSliderValue();
-//    float testMidSliderValue();
-//    float testHighSliderValue();
+//    EqualizerEditorTest();
+    float testLowSliderStartValue();
+    float testMidSliderStartValue();
+    float testHighSliderStartValue();
+    float testLowSliderMaxValue();
+    float testMidSliderMaxValue();
+    float testHighSliderMaxValue();
+    float testLowSliderMinValue();
+    float testMidSliderMinValue();
+    float testHighSliderMinValue();
 //    float testLowSliderDoubleClick();
 //    float testMidSliderDoubleClick();
 //    float testHighSliderDoubleClick();
+//private:
+//    EqualizerEditor editor;
+//    EqualizerProcessor processor;
 
 };
 
