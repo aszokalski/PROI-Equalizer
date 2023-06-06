@@ -7,7 +7,6 @@ add_subdirectory(lib/juce)
 juce_add_plugin(ProiEqualizer
         # ICON_BIG ...                              # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
         # ICON_SMALL ...
-        COMPANY_NAME "Szokalski & Król & Kraś"
 
         PLUGIN_MANUFACTURER_CODE Juce               # A four-character manufacturer id with at least one upper-case character
         PLUGIN_CODE Eqa0                            # A unique four-character plugin id with exactly one upper-case character
