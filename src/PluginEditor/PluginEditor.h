@@ -44,6 +44,8 @@ private:
     EqualizerProcessor& processorRef;
     SpectrumAnalyser spectrumAnalyser;
 
+    friend class EqualizerEditorTest;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EqualizerEditor)
 };
 
