@@ -30,7 +30,11 @@ EqualizerProcessor::~EqualizerProcessor()
 //==============================================================================
 const juce::String EqualizerProcessor::getName() const
 {
-    return JucePlugin_Name;
+    #ifdef JucePlugin_Name
+        return JucePlugin_Name;
+    #else
+        return "No name";
+    #endif
 }
 
 bool EqualizerProcessor::acceptsMidi() const

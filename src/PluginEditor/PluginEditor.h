@@ -6,7 +6,8 @@
 #define PROI_EQUALIZER_PROJECT_PLUGINEDITOR_H
 
 #include "../PluginProcessor/PluginProcessor.h"
-#include <JuceHeader.h>
+//#include <JuceHeader.h>
+#include "../../tests/PluginEditorTest.h"
 
 //==============================================================================
 class EqualizerEditor  : public juce::AudioProcessorEditor
@@ -36,6 +37,8 @@ private:
     SliderAttachmentPtr highAttachment;
 
     EqualizerProcessor& processorRef;
+
+    friend class EqualizerEditorTest;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EqualizerEditor)
 };
