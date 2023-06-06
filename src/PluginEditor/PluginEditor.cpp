@@ -3,7 +3,7 @@
 //
 
 #include "PluginEditor.h"
-#include "../PluginProcessor/PluginProcessor.h"
+#include "../util.h"
 
 //==============================================================================
 EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
@@ -56,12 +56,32 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
 
     highAttachment = std::make_unique<SliderAttachment>(processorRef.state, "HIGH", highSlider);
 
+    flavourComboBox.addItemList(util::eqParametersList.getNames(), 1);
+
+    flavourComboBox.setJustificationType(juce::Justification::centred);
+    flavourComboBox.setSelectedItemIndex(0);
+
+    flavourComboBox.onChange = [this] {
+        auto index = flavourComboBox.getSelectedItemIndex();
+        auto &pair = util::eqParametersList.eqParametersList[static_cast<unsigned long>(index)];
+        spectrumAnalyser.setMaxFrequency(pair.second->getMax());
+    };
+    addAndMakeVisible(flavourComboBox);
+
+    flavourLabel.setText("Flavour", juce::dontSendNotification);
+    flavourLabel.setFont(juce::Font(15.0f, juce::Font::bold));
+    flavourLabel.setJustificationType(juce::Justification::centred);
+    addAndMakeVisible(flavourLabel);
+
+    flavourAttachment = std::make_unique<ComboBoxAttachment>(processorRef.state, "TYPE", flavourComboBox);
+
+    processorRef.setSpectrumAnalyser(&spectrumAnalyser);
+    addAndMakeVisible(spectrumAnalyser);
+
     setSize (600, 600);
 }
 
-EqualizerEditor::~EqualizerEditor()
-{
-}
+EqualizerEditor::~EqualizerEditor() = default;
 
 //==============================================================================
 void EqualizerEditor::paint (juce::Graphics& g)
@@ -80,79 +100,14 @@ void EqualizerEditor::resized()
     lowSlider.setBounds(105, 360, 60, 200);
     midSlider.setBounds(270, 360, 60, 200);
     highSlider.setBounds(435, 360, 60, 200);
+    flavourComboBox.setBounds(290, 10, 80, 20);
+    flavourComboBox.toFront(false);
 
     lowLabel.setBounds(lowSlider.getX(), lowSlider.getY() + 205, lowSlider.getWidth(), 20);
     midLabel.setBounds(midSlider.getX(), midSlider.getY() + 205, midSlider.getWidth(), 20);
     highLabel.setBounds(highSlider.getX(), highSlider.getY() + 205, highSlider.getWidth(), 20);
-}
+    flavourLabel.setBounds(flavourComboBox.getX() - 80, flavourComboBox.getY(), flavourComboBox.getWidth(), 20);
+    flavourLabel.toFront(false);
 
-void AnalyserComponent::getNextAudioBlock(const juce::AudioSourceChannelInfo &bufferToFill)
-{
-    if (bufferToFill.buffer->getNumChannels() > 0)
-    {
-        auto* channelData = bufferToFill.buffer->getReadPointer (0, bufferToFill.startSample);
-
-        for (auto i = 0; i < bufferToFill.numSamples; ++i)
-            pushNextSampleIntoFifo (channelData[i]);
-    }
-}
-
-void AnalyserComponent::pushNextSampleIntoFifo(float sample) noexcept
-{
-    // if the fifo contains enough data, set a flag to say
-    // that the next frame should now be rendered..
-    if (fifoIndex == fftSize)               // [11]
-    {
-        if (! nextFFTBlockReady)            // [12]
-        {
-            juce::zeromem (fftData, sizeof (fftData));
-            memcpy (fftData, fifo, sizeof (fifo));
-            nextFFTBlockReady = true;
-        }
-        fifoIndex = 0;
-    }
-    fifo[fifoIndex++] = sample;
-}
-
-void AnalyserComponent::drawNextFrameOfSpectrum()
-{
-    // first apply a windowing function to our data
-    window.multiplyWithWindowingTable (fftData, fftSize);       // [1]
-    // then render our FFT data..
-    forwardFFT.performFrequencyOnlyForwardTransform (fftData);  // [2]
-    auto mindB = -100.0f;
-    auto maxdB =    0.0f;
-
-    for (int i = 0; i < scopeSize; ++i)                         // [3]
-    {
-        auto skewedProportionX = 1.0f - std::exp (std::log (1.0f - (float) i / (float) scopeSize) * 0.2f);
-        auto fftDataIndex = juce::jlimit (0, fftSize / 2, (int) (skewedProportionX * (float) fftSize * 0.5f));
-        auto level = juce::jmap (juce::jlimit (mindB, maxdB, juce::Decibels::gainToDecibels (fftData[fftDataIndex])
-                                                             - juce::Decibels::gainToDecibels ((float) fftSize)),
-                                 mindB, maxdB, 0.0f, 1.0f);
-        scopeData[i] = level;                                   // [4]
-    }
-}
-
-void AnalyserComponent::timerCallback()
-{
-    if (nextFFTBlockReady) {
-        drawNextFrameOfSpectrum();
-        nextFFTBlockReady = false;
-        AnalyserComponent::repaint();
-    }
-}
-
-void AnalyserComponent::drawFrame(juce::Graphics &g)
-{
-    for (int i = 1; i < scopeSize; ++i)
-    {
-        auto width  = getLocalBounds().getWidth();
-        auto height = getLocalBounds().getHeight();
-
-        g.drawLine ({ (float) juce::jmap (i - 1, 0, scopeSize - 1, 0, width),
-                      juce::jmap (scopeData[i - 1], 0.0f, 1.0f, (float) height, 0.0f),
-                      (float) juce::jmap (i, 0, scopeSize - 1, 0, width),
-                      juce::jmap (scopeData[i], 0.0f, 1.0f, (float) height, 0.0f) });
-    }
+    spectrumAnalyser.setBounds(10, 10, 580, 320);
 }

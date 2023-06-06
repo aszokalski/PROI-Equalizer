@@ -1,6 +1,7 @@
 //
 // Created by Adam Szokalski on 10/05/2023.
 //
+#include <type_traits>
 
 #include "PluginProcessor.h"
 #include "../PluginEditor/PluginEditor.h"
@@ -24,17 +25,17 @@ midPeakFilter(juce::dsp::IIR::Coefficients<float>::makePeakFilter(44100, 20000, 
 }
 
 EqualizerProcessor::~EqualizerProcessor()
-{
-}
+= default;
 
 //==============================================================================
 const juce::String EqualizerProcessor::getName() const
 {
-    #ifdef JucePlugin_Name
-        return JucePlugin_Name;
-    #else
-        return "No name";
-    #endif
+#ifdef JucePlugin_Name
+    return JucePlugin_Name;
+#else
+    return "No name";
+#endif
+
 }
 
 bool EqualizerProcessor::acceptsMidi() const
@@ -100,6 +101,10 @@ void EqualizerProcessor::changeProgramName (int index, const juce::String& newNa
 void EqualizerProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     lastSampleRate = sampleRate;
+
+    if (spectrumAnalyserPtr != nullptr)
+        spectrumAnalyserPtr->setLastSampleRate(sampleRate);
+
     juce::dsp::ProcessSpec spec{};
     spec.sampleRate = sampleRate;
     spec.maximumBlockSize = static_cast<unsigned int>(samplesPerBlock);
@@ -170,6 +175,9 @@ void EqualizerProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     lowPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
     highPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
     midPeakFilter.process(juce::dsp::ProcessContextReplacing<float>(block));
+
+    if(spectrumAnalyserPtr != nullptr)
+        spectrumAnalyserPtr->pushBuffer(buffer);
 }
 
 //==============================================================================
@@ -186,17 +194,18 @@ juce::AudioProcessorEditor* EqualizerProcessor::createEditor()
 //==============================================================================
 void EqualizerProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
-    juce::ignoreUnused (destData);
+    auto state_copy = state.copyState();
+    std::unique_ptr<juce::XmlElement> xml (state_copy.createXml());
+    copyXmlToBinary (*xml, destData);
 }
 
 void EqualizerProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
-    juce::ignoreUnused (data, sizeInBytes);
+    std::unique_ptr<juce::XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+
+    if (xmlState != nullptr)
+        if (xmlState->hasTagName (state.state.getType()))
+            state.replaceState (juce::ValueTree::fromXml (*xmlState));
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout EqualizerProcessor::createParameters() {
@@ -215,6 +224,12 @@ juce::AudioProcessorValueTreeState::ParameterLayout EqualizerProcessor::createPa
                                                                     juce::NormalisableRange<float>(0.0f, 1.0f, 0.01f),
                                                                     0.5f));
 
+    params.push_back(std::make_unique<juce::AudioParameterChoice>("TYPE",
+                                                                    "TYPE",
+                                                                    util::eqParametersList.getNames(),
+                                                                    0));
+
+
     return { params.begin(), params.end() };
 }
 
@@ -222,18 +237,25 @@ void EqualizerProcessor::updateFilters() const {
     float l_f = *state.getRawParameterValue("LOW");
     float h_f = *state.getRawParameterValue("HIGH");
     float m_f = *state.getRawParameterValue("MID");
+    int type = static_cast<int>(*state.getRawParameterValue("TYPE"));
+
+    auto& eqParameters = util::eqParametersList.eqParametersList[static_cast<unsigned long>(type)].second;
 
     // low cut = high pass
-    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(lastSampleRate, FrequencyBorders::getLowFreq(l_f));
+    *highPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeHighPass(lastSampleRate, eqParameters->getLowFreq(l_f));
     // high cut = low pass
-    *lowPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowPass(lastSampleRate, FrequencyBorders::getHighFreq(h_f));
+    *lowPassFilter.state = *juce::dsp::IIR::Coefficients<float>::makeLowPass(lastSampleRate, eqParameters->getHighFreq(h_f));
     // low peak
-    *lowPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::Min, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((l_f - 0.5f) * 50.0f, 0.1f)));
+    *lowPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, eqParameters->getMin(), util::inverseRootTwo, juce::Decibels::decibelsToGain(fmax((l_f - 0.5f) * 50.0f, 0.1f)));
     // high peak
-    *highPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::Max, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((h_f - 0.5f) * 50.0f, 0.1f)));
+    *highPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, eqParameters->getMax(), util::inverseRootTwo, juce::Decibels::decibelsToGain(fmax((h_f - 0.5f) * 50.0f, 0.1f)));
     // mid peak
-    *midPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, FrequencyBorders::MidHigh, inverseRootTwo, juce::Decibels::decibelsToGain(fmax((m_f - 0.5f) * 50.0f, 0.1f)));
+    *midPeakFilter.state = *juce::dsp::IIR::Coefficients<float>::makePeakFilter(lastSampleRate, eqParameters->getMidHigh(), util::inverseRootTwo, juce::Decibels::decibelsToGain(m_f*25.0f));
+}
 
+void EqualizerProcessor::setSpectrumAnalyser(SpectrumAnalyser *spectrumAnalyser) {
+    this->spectrumAnalyserPtr = spectrumAnalyser;
+    spectrumAnalyserPtr->setLastSampleRate(lastSampleRate);
 }
 
 //==============================================================================
