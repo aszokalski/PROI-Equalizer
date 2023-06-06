@@ -25,4 +25,6 @@ For info on building and setting up project go to [README](/README.md)
 - [docs.md](docs.md) - this file (project documentation)
 - [README.md](README.md) - the general project README file
 
-### Insert your .drawio file here
+### Basic plugin structure graph
+
+![Plugin structure](/plugin_structure.png)
