@@ -5,8 +5,6 @@
 #ifndef PROI_EQUALIZER_PROJECT_PLUGINEDITOR_H
 #define PROI_EQUALIZER_PROJECT_PLUGINEDITOR_H
 
-#include <JuceHeader.h>
-
 #include "../PluginProcessor/PluginProcessor.h"
 #include "../SpectrumAnalyser/SpectrumAnalyser.h"
 

@@ -61,9 +61,7 @@ EqualizerEditor::EqualizerEditor (EqualizerProcessor& p)
     setSize (600, 600);
 }
 
-EqualizerEditor::~EqualizerEditor()
-{
-}
+EqualizerEditor::~EqualizerEditor() = default;
 
 //==============================================================================
 void EqualizerEditor::paint (juce::Graphics& g)

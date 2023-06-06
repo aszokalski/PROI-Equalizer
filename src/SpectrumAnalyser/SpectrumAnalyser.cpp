@@ -81,18 +81,42 @@ void SpectrumAnalyser::updateScope() {
     }
 }
 
-void SpectrumAnalyser::drawFrame(juce::Graphics &g) {
-    for (int i = 1; i < scopeSize; ++i)
-    {
-        auto width  = getLocalBounds().getWidth();
-        auto height = getLocalBounds().getHeight();
+void SpectrumAnalyser::drawFrame(juce::Graphics& g) {
+    int numPoints = scopeSize; // Number of data points
 
-        g.drawLine ({ (float) juce::jmap (i - 1, 0, scopeSize - 1, 0, width),
-                      juce::jmap (scopeData[i - 1], 0.0f, 1.0f, (float) height, 0.0f),
-                      (float) juce::jmap (i,     0, scopeSize - 1, 0, width),
-                      juce::jmap (scopeData[i],     0.0f, 1.0f, (float) height, 0.0f) });
+    auto width = getLocalBounds().getWidth();
+    auto height = getLocalBounds().getHeight();
+
+    // Generate the smooth curve using a cubic B-spline
+    juce::Path path;
+    float tStep = 1.0f / static_cast<float>(numPoints/3 - 1);
+
+    path.startNewSubPath(0.0f, juce::jmap(scopeData[0], 0.0f, 1.0f, static_cast<float>(height), 0.0f));
+
+    for (int i = 0; i < numPoints - 3; i += 3){
+        float t0 = static_cast<float>(i) * tStep;
+        float t1 = static_cast<float>(i + 1) * tStep;
+        float t2 = static_cast<float>(i + 2) * tStep;
+        float t3 = static_cast<float>(i + 3) * tStep;
+
+        float x0 = juce::jmap(t0, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
+        float x1 = juce::jmap(t1, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
+        float x2 = juce::jmap(t2, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
+        float x3 = juce::jmap(t3, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
+
+        float y0 = juce::jmap(scopeData[i], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
+        float y1 = juce::jmap(scopeData[i + 1], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
+        float y2 = juce::jmap(scopeData[i + 2], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
+        float y3 = juce::jmap(scopeData[i + 3], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
+
+        path.cubicTo(x1, y1, x2, y2, x3, y3);
     }
+
+    g.setColour(juce::Colours::white);
+    g.strokePath(path, juce::PathStrokeType(1.0f));
 }
+
+
 
 void SpectrumAnalyser::setLastSampleRate(double sampleRate) noexcept {
     lastSampleRate = sampleRate;
