@@ -2,6 +2,10 @@
 
 A simple equalizer plugin written in JUCE
 
+## Documentation
+
+Click ***[here](/docs.md)*** for full project documentation.
+
 ## Supported targets
 
 | Target             | Support |
