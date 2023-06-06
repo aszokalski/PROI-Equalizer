@@ -33,7 +33,7 @@ private:
     {
         fftOrder  = 11,
         fftSize   = 1 << fftOrder,
-        scopeSize = 512
+        scopeSize = 48
     };
 
     juce::dsp::FFT forwardFFT;

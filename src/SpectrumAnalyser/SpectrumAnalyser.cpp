@@ -3,6 +3,7 @@
 //
 
 #include "SpectrumAnalyser.h"
+#include "../util.h"
 
 SpectrumAnalyser::SpectrumAnalyser() :  forwardFFT (fftOrder),
                                         window (fftSize, juce::dsp::WindowingFunction<float>::rectangular)
@@ -63,7 +64,7 @@ void SpectrumAnalyser::updateScope() {
     int numBands = fftSize / 2;
 
     // Calculate the maximum index in the FFT data corresponding to 20kHz
-    int maxIndex = (int)((float)numBands * 20000.0f / lastSampleRate);
+    int maxIndex = (int)((float)numBands * FrequencyBorders::Max / lastSampleRate);
 
     for (int i = 0; i < scopeSize; ++i)
     {
@@ -82,39 +83,34 @@ void SpectrumAnalyser::updateScope() {
 }
 
 void SpectrumAnalyser::drawFrame(juce::Graphics& g) {
-    int numPoints = scopeSize; // Number of data points
+    int numPoints = scopeSize*10; // increasing number of points to make the curve smoother
 
     auto width = getLocalBounds().getWidth();
     auto height = getLocalBounds().getHeight();
 
-    // Generate the smooth curve using a cubic B-spline
+    // Create a spiky path
     juce::Path path;
-    float tStep = 1.0f / static_cast<float>(numPoints/3 - 1);
-
     path.startNewSubPath(0.0f, juce::jmap(scopeData[0], 0.0f, 1.0f, static_cast<float>(height), 0.0f));
 
-    for (int i = 0; i < numPoints - 3; i += 3){
-        float t0 = static_cast<float>(i) * tStep;
-        float t1 = static_cast<float>(i + 1) * tStep;
-        float t2 = static_cast<float>(i + 2) * tStep;
-        float t3 = static_cast<float>(i + 3) * tStep;
-
-        float x0 = juce::jmap(t0, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
-        float x1 = juce::jmap(t1, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
-        float x2 = juce::jmap(t2, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
-        float x3 = juce::jmap(t3, 0.0f, 1.0f, 0.0f, static_cast<float>(width));
-
-        float y0 = juce::jmap(scopeData[i], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
-        float y1 = juce::jmap(scopeData[i + 1], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
-        float y2 = juce::jmap(scopeData[i + 2], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
-        float y3 = juce::jmap(scopeData[i + 3], 0.0f, 1.0f, static_cast<float>(height), 0.0f);
-
-        path.cubicTo(x1, y1, x2, y2, x3, y3);
+    for (int i = 0; i < numPoints - 3; ++i) {
+        path.lineTo(
+                      (float) juce::jmap (i, 0, scopeSize - 1, 0, width),
+                      juce::jmap (scopeData[i], 0.0f, 1.0f, (float) height, 0.0f) );
     }
 
+    // Save the current graphics state
+    juce::Graphics::ScopedSaveState state(g);
+
+    // Create a rounded path with the same outline as the curve
+    float cornerSize = 10.0f;
+    juce::Path roundedPath = path.createPathWithRoundedCorners(cornerSize);
+
+    // Draw the curve with increased stroke width
     g.setColour(juce::Colours::white);
-    g.strokePath(path, juce::PathStrokeType(1.0f));
+    g.strokePath(roundedPath, juce::PathStrokeType(1.0f));
 }
+
+
 
 
 
