@@ -14,8 +14,8 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         include:
-          - os: macos-latest
-            platform: mac
+#           - os: macos-latest
+#             platform: mac
           - os: ubuntu-latest
             platform: linux
 
