@@ -18,8 +18,8 @@ For info on building and setting up project go to [README](/README.md)
   - [/SpectrumAnalyser](/src/SpectrumAnalyser) - the directory for the spectrum analyser
       - [SpectrumAnalyser.cpp](/src/SpectrumAnalyser/SpectrumAnalyser.cpp) - the source code with spectrum analyser logic and user output
       - [SpectrumAnalyser.h](/src/SpectrumAnalyser/SpectrumAnalyser.h) - the header file for the spectrum analyser
-  - [util.cpp](/src/util.cpp)  
-  - [util.h](/src/util.h) 
+  - [util.cpp](/src/util.cpp) - source code for utility objects. It lets you configure some parameters of the EQ.
+  - [util.h](/src/util.h) - header file for utility objects.
 - [/tests](/tests) - the directory for the test files
 - [CMakeLists.txt](CMakeLists.txt) - the CMake file for the project
 - [docs.md](docs.md) - this file (project documentation)
