@@ -29,12 +29,12 @@ jobs:
           
       - name: Install X11 Development Libraries
         run: |
-          if [ "${{ matrix.platform }}" = "linux" ]; then
+          if [[ "${{ matrix.platform }}" == "linux" || "${{ matrix.platform }}" == "ubuntu" ]]; then
             sudo apt-get update
-            sudo apt-get install -y libx11-dev libxrandr-dev
-          elif [ "${{ matrix.platform }}" = "mac" ]; then
+            sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev
+          elif [ "${{ matrix.platform }}" == "mac" ]; then
             brew update
-            brew install libx11 libxrandr
+            brew install libx11 libxrandr libxinerama
           fi
 
       - name: Configure CMake
