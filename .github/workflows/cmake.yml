@@ -26,6 +26,16 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: true
+          
+      - name: Install X11 Development Libraries
+        run: |
+          if [ "${{ matrix.platform }}" = "linux" ]; then
+            sudo apt-get update
+            sudo apt-get install -y libx11-dev libxrandr-dev
+          elif [ "${{ matrix.platform }}" = "mac" ]; then
+            brew update
+            brew install libx11 libxrandr
+          fi
 
       - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
