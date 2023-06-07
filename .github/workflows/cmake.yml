@@ -1,0 +1,44 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build Targets
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        include:
+          - os: macos-latest
+            platform: mac
+          - os: windows-latest
+            platform: win
+          - os: ubuntu-latest
+            platform: linux
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up CMake
+        uses: jacobtomlinson/setup-cmake@v1
+
+      - name: Build Target
+        run: |
+          cmake -S . -B build/${{ matrix.platform }}
+          cmake --build build/${{ matrix.platform }} --config Release
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build/${{ matrix.platform }}/ProiEqualizer.so
+            build/${{ matrix.platform }}/ProiEqualizer.vst3
+            build/${{ matrix.platform }}/ProiEqualizer.exe
+          tag_name: v${{ github.run_number }}
+          release_name: Release v${{ github.run_number }}
