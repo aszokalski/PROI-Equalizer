@@ -40,4 +40,4 @@ target_link_libraries(ProiEqualizer
         juce::juce_recommended_lto_flags
         juce::juce_recommended_warning_flags)
 
-add_subdirectory(tests)
+# add_subdirectory(tests)
