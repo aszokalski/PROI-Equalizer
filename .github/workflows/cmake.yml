@@ -35,11 +35,6 @@ jobs:
             brew install libx11 libxrandr libxinerama libxcursor libxcomposite libxdamage libxext libxfixes libxi libxrandr libxrender libxtst libsoundio libpulse jack nss libxcursor libxss gtk+3 webkit2gtk
           fi
 
-      - name: Configure CMake
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
       - name: Build Target
         run: |
           cmake -S . -B build/${{ matrix.platform }}
