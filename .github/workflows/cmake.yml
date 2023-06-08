@@ -20,6 +20,14 @@ jobs:
             platform: linux
 
     steps:
+      - name: Cache
+        uses: actions/cache@v1.2.1
+        with:
+          # A directory to store and save the cache
+          path: ./cache
+          # An explicit key for restoring and saving the cache
+          key: abc123abc
+    
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
@@ -34,6 +42,8 @@ jobs:
             brew update
             brew install libx11 libxrandr libxinerama libxcursor libxcomposite libxdamage libxext libxfixes libxi libxrandr libxrender libxtst libsoundio libpulse jack nss libxcursor libxss gtk+3 webkit2gtk
           fi
+          
+          
 
       - name: Build Target
         run: |
