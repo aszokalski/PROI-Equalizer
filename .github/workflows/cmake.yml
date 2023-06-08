@@ -39,6 +39,13 @@ jobs:
         run: |
           cmake -S . -B build/${{ matrix.platform }}
           cmake --build build/${{ matrix.platform }} --config Release
+          
+      # Upload Artifact
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production
+          path: ./build
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
