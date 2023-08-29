@@ -2,6 +2,8 @@
 
 A simple equalizer plugin written in JUCE
 
+![Example](example.gif)
+
 ## Documentation
 
 Click ***[here](/docs.md)*** for full project documentation.
